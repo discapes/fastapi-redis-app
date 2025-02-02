@@ -1,10 +1,11 @@
 services:
   web:
     build: .
-    ports:
-      - "80:80"
     depends_on:
       - redis
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fastapi-redis-app.rule=Host(`visitors.miikat.dev`)"
   redis:
     image: "redis:latest"
     ports:
