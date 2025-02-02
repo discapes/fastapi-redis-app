@@ -15,4 +15,5 @@ ENV VIRTUAL_ENV=/app/.venv \
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 COPY fastapi-redis-app ./fastapi-redis-app
 
+EXPOSE 80
 CMD ["fastapi", "run", "fastapi-redis-app", "--port", "80"]

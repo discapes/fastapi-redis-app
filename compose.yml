@@ -1,6 +1,7 @@
 services:
   web:
     build: .
+    restart: unless-stopped
     depends_on:
       - redis
     labels:
@@ -8,5 +9,6 @@ services:
       - "traefik.http.routers.fastapi-redis-app.rule=Host(`visitors.miikat.dev`)"
   redis:
     image: "redis:latest"
+    restart: unless-stopped
     ports:
       - "6379:6379"
