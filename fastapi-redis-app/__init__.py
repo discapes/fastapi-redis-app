@@ -9,4 +9,4 @@ redis_client = redis.Redis(host="redis", port=6379, decode_responses=True)
 def read_root():
     redis_client.incr("visits")
     visits = redis_client.get("visits")
-    return {"message": "Hello from version 3", "visits": visits}
+    return {"message": "Hello from version 4", "visits": visits}
