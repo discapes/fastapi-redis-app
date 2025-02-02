@@ -13,5 +13,3 @@ services:
     image: "redis:latest"
     restart: unless-stopped
     networks: [user]
-    ports:
-      - "6379:6379"
