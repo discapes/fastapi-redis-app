@@ -1,7 +1,9 @@
+networks: { user: { external: true } }
 services:
   web:
     build: .
     restart: unless-stopped
+    networks: [user]
     depends_on:
       - redis
     labels:
@@ -10,5 +12,6 @@ services:
   redis:
     image: "redis:latest"
     restart: unless-stopped
+    networks: [user]
     ports:
       - "6379:6379"
